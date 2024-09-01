@@ -1,0 +1,33 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "3aed510fe4f69905f3b78757d1377b9a"
+name = "dul"
+handle = "dul-1"
+application_url = "https://operating-deadly-naturally-manitoba.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "discountupperlimit.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_discounts,write_discounts,write_products"
+
+[auth]
+redirect_urls = [
+  "https://operating-deadly-naturally-manitoba.trycloudflare.com/auth/callback",
+  "https://operating-deadly-naturally-manitoba.trycloudflare.com/auth/shopify/callback",
+  "https://operating-deadly-naturally-manitoba.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks"
+
+[pos]
+embedded = false

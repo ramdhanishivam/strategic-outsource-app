@@ -1,0 +1,23 @@
+query RunInput {
+  cart {
+    cost {
+      totalAmount{
+        amount
+      }
+    }
+    lines {
+      quantity
+      merchandise {
+        __typename
+        ...on ProductVariant {
+          id
+        }
+      }
+    }
+  }
+  discountNode {
+    metafield(namespace: "$app:limiter", key: "discount-upper-limit") {
+      value
+    }
+  }
+}
